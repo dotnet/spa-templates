@@ -1,14 +1,8 @@
 #if (IndividualLocalAuth)
 using Microsoft.AspNetCore.Authentication;
-#endif
-#if (IndividualLocalAuth)
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
-#endif
-#if (IndividualLocalAuth)
 using Microsoft.EntityFrameworkCore;
-#endif
-#if (IndividualLocalAuth)
 using Company.WebApplication1.Data;
 using Company.WebApplication1.Models;
 #endif
