@@ -5,8 +5,8 @@ using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
 using Company.WebApplication1.Data;
 using Company.WebApplication1.Models;
-#endif
 
+#endif
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
