@@ -1,0 +1,28 @@
+<Project>
+  <PropertyGroup Label="Version settings">
+    <AspNetCoreMajorVersion>6</AspNetCoreMajorVersion>
+    <AspNetCoreMinorVersion>0</AspNetCoreMinorVersion>
+    <AspNetCoreMajorMinorVersion>$(AspNetCoreMajorVersion).$(AspNetCoreMinorVersion)</AspNetCoreMajorMinorVersion>
+    <DefaultNetCoreTargetFramework>net6.0</DefaultNetCoreTargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Label="Package versions">
+    <!-- Packages from dotnet/arcade -->
+    <MicrosoftDotNetBuildTasksTemplatingVersion>6.0.0-beta.21373.11</MicrosoftDotNetBuildTasksTemplatingVersion>
+    <!-- Packages from dotnet/aspnetcore -->
+    <MicrosoftAspNetCoreApiAuthorizationIdentityServerVersion>6.0.0-preview.6.21355.2</MicrosoftAspNetCoreApiAuthorizationIdentityServerVersion>
+    <MicrosoftAspNetCoreDiagnosticsEntityFrameworkCoreVersion>6.0.0-preview.6.21355.2</MicrosoftAspNetCoreDiagnosticsEntityFrameworkCoreVersion>
+    <MicrosoftAspNetCoreIdentityEntityFrameworkCoreVersion>6.0.0-preview.6.21355.2</MicrosoftAspNetCoreIdentityEntityFrameworkCoreVersion>
+    <MicrosoftAspNetCoreIdentityUIVersion>6.0.0-preview.6.21355.2</MicrosoftAspNetCoreIdentityUIVersion>
+    <MicrosoftAspNetCoreSpaProxyVersion>6.0.0-preview.6.21355.2</MicrosoftAspNetCoreSpaProxyVersion>
+    <MicrosoftAspNetCoreSpaServicesExtensionsVersion>6.0.0-preview.6.21355.2</MicrosoftAspNetCoreSpaServicesExtensionsVersion>
+    <!-- Packages from dotnet/efcore -->
+    <MicrosoftEntityFrameworkCoreRelationalVersion>6.0.0-preview.6.21352.1</MicrosoftEntityFrameworkCoreRelationalVersion>
+    <MicrosoftEntityFrameworkCoreSqliteVersion>6.0.0-preview.6.21352.1</MicrosoftEntityFrameworkCoreSqliteVersion>
+    <MicrosoftEntityFrameworkCoreSqlServerVersion>6.0.0-preview.6.21352.1</MicrosoftEntityFrameworkCoreSqlServerVersion>
+    <MicrosoftEntityFrameworkCoreToolsVersion>6.0.0-preview.6.21352.1</MicrosoftEntityFrameworkCoreToolsVersion>
+    <!-- Packages from dotnet/runtime -->
+    <MicrosoftExtensionsHostingVersion>6.0.0-preview.6.21352.12</MicrosoftExtensionsHostingVersion>
+    <!-- Packages from dotnet/sourcelink -->
+    <MicrosoftSourceLinkVersion>1.1.0-beta-20206-02</MicrosoftSourceLinkVersion>
+  </PropertyGroup>
+</Project>

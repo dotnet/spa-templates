@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
     <TargetFramework>$(DefaultNetCoreTargetFramework)</TargetFramework>
     <PackageId>Microsoft.DotNet.Web.Spa.ProjectTemplates.$(AspNetCoreMajorMinorVersion)</PackageId>
@@ -9,33 +8,48 @@
     <NoDefaultExcludes>true</NoDefaultExcludes>
   </PropertyGroup>
 
-    <PropertyGroup>
+  <PropertyGroup>
     <!-- Lists the versions of dependencies not built in this repo. Packages produced from this repo should be listed as a PackageVersionVariableReference.  -->
     <GeneratedContentProperties>
       DefaultNetCoreTargetFramework=$(DefaultNetCoreTargetFramework);
-      MicrosoftEntityFrameworkCoreSqliteVersion=$(MicrosoftEntityFrameworkCoreSqliteVersion);
       MicrosoftEntityFrameworkCoreRelationalVersion=$(MicrosoftEntityFrameworkCoreRelationalVersion);
+      MicrosoftEntityFrameworkCoreSqliteVersion=$(MicrosoftEntityFrameworkCoreSqliteVersion);
       MicrosoftEntityFrameworkCoreSqlServerVersion=$(MicrosoftEntityFrameworkCoreSqlServerVersion);
       MicrosoftEntityFrameworkCoreToolsVersion=$(MicrosoftEntityFrameworkCoreToolsVersion);
       MicrosoftExtensionsHostingVersion=$(MicrosoftExtensionsHostingVersion);
-      MicrosoftNETCoreAppRuntimeVersion=$(MicrosoftNETCoreAppRuntimeVersion);
-      MicrosoftAspNetCoreSpaProxyVersion=$(MicrosoftAspNetCoreSpaProxyVersion);
     </GeneratedContentProperties>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!-- These projects product packages that the templates depend on. See GenerateContent.targets -->
-    <PackageVersionVariableReference Include="$(RepoRoot)src\Middleware\Spa\SpaServices.Extensions\src\Microsoft.AspNetCore.SpaServices.Extensions.csproj" />
-    <PackageVersionVariableReference Include="$(RepoRoot)src\Middleware\Spa\SpaProxy\src\Microsoft.AspNetCore.SpaProxy.csproj" />
-    <PackageVersionVariableReference Include="$(RepoRoot)src\Identity\ApiAuthorization.IdentityServer\src\Microsoft.AspNetCore.ApiAuthorization.IdentityServer.csproj" />
-    <PackageVersionVariableReference Include="$(RepoRoot)src\Identity\EntityFrameworkCore\src\Microsoft.AspNetCore.Identity.EntityFrameworkCore.csproj" />
-    <PackageVersionVariableReference Include="$(RepoRoot)src\Identity\UI\src\Microsoft.AspNetCore.Identity.UI.csproj" />
-    <PackageVersionVariableReference Include="$(RepoRoot)src\Middleware\Diagnostics.EntityFrameworkCore\src\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.csproj" />
-  </ItemGroup>
+  <Choose>
+    <When Condition=" '$(RepoRoot)' == '' ">
+      <PropertyGroup>
+        <!-- Lists the versions of dependencies not built in this repo. Packages produced from this repo should be listed as a PackageVersionVariableReference.  -->
+        <GeneratedContentProperties>
+          $(GeneratedContentProperties);
+          MicrosoftAspNetCoreApiAuthorizationIdentityServerVersion=$(MicrosoftAspNetCoreApiAuthorizationIdentityServerVersion);
+          MicrosoftAspNetCoreDiagnosticsEntityFrameworkCoreVersion=$(MicrosoftAspNetCoreDiagnosticsEntityFrameworkCoreVersion);
+          MicrosoftAspNetCoreIdentityEntityFrameworkCoreVersion=$(MicrosoftAspNetCoreIdentityEntityFrameworkCoreVersion);
+          MicrosoftAspNetCoreIdentityUIVersion=$(MicrosoftAspNetCoreIdentityUIVersion);
+          MicrosoftAspNetCoreSpaProxyVersion=$(MicrosoftAspNetCoreSpaProxyVersion);
+          MicrosoftAspNetCoreSpaServicesExtensionsVersion=$(MicrosoftAspNetCoreSpaServicesExtensionsVersion);
+        </GeneratedContentProperties>
+      </PropertyGroup>
+    </When>
+    <Otherwise>
+      <ItemGroup>
+        <!-- These projects product packages that the templates depend on. See GenerateContent.targets -->
+        <PackageVersionVariableReference Include="$(RepoRoot)src\Identity\ApiAuthorization.IdentityServer\src\Microsoft.AspNetCore.ApiAuthorization.IdentityServer.csproj" />
+        <PackageVersionVariableReference Include="$(RepoRoot)src\Middleware\Diagnostics.EntityFrameworkCore\src\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.csproj" />
+        <PackageVersionVariableReference Include="$(RepoRoot)src\Identity\EntityFrameworkCore\src\Microsoft.AspNetCore.Identity.EntityFrameworkCore.csproj" />
+        <PackageVersionVariableReference Include="$(RepoRoot)src\Identity\UI\src\Microsoft.AspNetCore.Identity.UI.csproj" />
+        <PackageVersionVariableReference Include="$(RepoRoot)src\Middleware\Spa\SpaProxy\src\Microsoft.AspNetCore.SpaProxy.csproj" />
+        <PackageVersionVariableReference Include="$(RepoRoot)src\Middleware\Spa\SpaServices.Extensions\src\Microsoft.AspNetCore.SpaServices.Extensions.csproj" />
+      </ItemGroup>
+    </Otherwise>
+  </Choose>
 
   <ItemGroup>
     <GeneratedContent Include="Angular-CSharp.csproj.in" OutputPath="content/Angular-CSharp/Company.WebApplication1.csproj" />
     <GeneratedContent Include="React-CSharp.csproj.in" OutputPath="content/React-CSharp/Company.WebApplication1.csproj" />
   </ItemGroup>
-
 </Project>
