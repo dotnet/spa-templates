@@ -155,6 +155,28 @@
       },
       "replaces": "44300"
     },
+    "ProxyPort": {
+      "type": "parameter",
+      "datatype": "integer",
+      "description": "Port number to use for the SPA front-end development proxy."
+    },
+    "ProxyPortGenerated": {
+      "type": "generated",
+      "generator": "port",
+      "parameters": {
+        "low": 44400,
+        "high": 44499
+      }
+    },
+    "ProxyPortReplacer": {
+      "type": "generated",
+      "generator": "coalesce",
+      "parameters": {
+        "sourceVariableName": "ProxyPort",
+        "fallbackVariableName": "ProxyPortGenerated"
+      },
+      "replaces": "5002"
+    },
     "IndividualLocalAuth": {
       "type": "computed",
       "value": "(auth == \"Individual\")"
