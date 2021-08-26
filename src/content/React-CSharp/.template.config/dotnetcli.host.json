@@ -19,6 +19,9 @@
     "iisHttpsPort": {
       "isHidden": true
     },
+    "NoSpaFrontEnd":{
+      "isHidden": true
+    },
     "ExcludeLaunchSettings": {
       "longName": "exclude-launch-settings",
       "shortName": ""
