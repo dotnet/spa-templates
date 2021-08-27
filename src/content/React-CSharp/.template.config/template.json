@@ -115,6 +115,12 @@
       "description": "If specified, skips the automatic restore of the project on create.",
       "defaultValue": "false"
     },
+    "NoSpaFrontEnd": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "description": "Avoids adding any of the node/spa files. Used for testing only."
+    },
     "kestrelHttpPort": {
       "type": "parameter",
       "datatype": "integer",

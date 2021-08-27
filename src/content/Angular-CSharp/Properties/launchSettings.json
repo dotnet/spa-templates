@@ -22,7 +22,9 @@
       //#endif
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
+        //#if(!NoSpaFrontEnd)
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
+        //#endif
       }
     },
     "IIS Express": {
@@ -30,7 +32,9 @@
       "launchBrowser": true,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development",
+        //#if(!NoSpaFrontEnd)
         "ASPNETCORE_HOSTINGSTARTUPASSEMBLIES": "Microsoft.AspNetCore.SpaProxy"
+        //#endif
       }
     }
   }
