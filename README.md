@@ -21,4 +21,4 @@ The format of each project template in the file should follow existing pattern, 
 - [Template Name](Link to NuGet.org package): Description
 ```
 
-When you're ready to propose your changes prepared in your fork, use the following PR template when submitting a new PR. To do so, append the additional `?template=template.md` parameter to the PR creation page link, and you'll get all the info we need to fill in for the PR.
+When you're ready to propose your changes prepared in your fork, use the following PR template when submitting a new PR. To do so, append the additional `&template=projectTemplate.md` parameter to the PR creation page link, and you'll get all the info we need to fill in for the PR.
