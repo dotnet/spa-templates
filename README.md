@@ -18,7 +18,10 @@ We've created a new PR template, to help with new project template proposals.
 The format of each project template in the file should follow existing pattern, which goes as follows:
 
 ```
-- [Template Name](Link to NuGet.org package): Description
+1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/)<br />
+  Short description of the template
 ```
+
+Simply copy the first item content and append it to the bottom of the file, then make necessary updates.
 
 When you're ready to propose your changes prepared in your fork, use the following PR template when submitting a new PR. To do so, append the additional `&template=projectTemplate.md` parameter to the PR creation page link, and you'll get all the info we need to fill in for the PR.
