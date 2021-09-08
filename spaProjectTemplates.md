@@ -1,5 +1,5 @@
 ## Community owned ASP.NET Core SPA project templates
-The below list represents popular project template packages on NuGet, which enable different scenarios for ASP.NET Core backed SPA project templates.
+The below list represents project template packages on NuGet, which enable different scenarios for ASP.NET Core backed SPA project templates.
 
 <!--
 Please use this template for each submission
