@@ -2,7 +2,11 @@ This repo is home for the Single Page Application (SPA) project templates which 
 At the moment, those are `Angular` and `React` templates.
 
 Besides these two templates, we also want this repo to serve as a knowledge-base for all community-owned SPA project templates out there.
-We expect to maintain that list in the `SpaProjectTempltes.md` file. If you know of any such project templates, which are popular, send us a PR with added information in that file, and we'll include it, it it meets the popularity bar.
+We expect to maintain that list in the `SpaProjectTempltes.md` file. If you know of any such project templates, which will meet some basic quality bar, submit a PR and we'll consider it. Things that we'll be looking for are:
+- HTTPS enabled by default
+- good dev experience - easy to understand and work with out of the box
+- publishing newly created project works
+- JS framework code kept up-to-date
 
 We try to keep the list of community owned SPA project templates up to date as well as want to make sure it is a good quality list for everyone to refer to. For that, submissions will be evaluated by our team on case-by-case basis.
 
