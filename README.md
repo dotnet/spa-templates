@@ -2,7 +2,7 @@ This repo is home for the Single Page Application (SPA) project templates which 
 At the moment, those are `Angular` and `React` templates.
 
 Besides these two templates, we also want this repo to serve as a knowledge-base for all community-owned SPA project templates out there.
-We expect to maintain that list in the `SpaProjectTempltes.md` file. If you know of any such project templates, which will meet some basic quality bar, submit a PR and we'll consider it. Things that we'll be looking for are:
+We expect to maintain that list in the bottom of this file. If you know of any such project templates, which will meet some basic quality bar, submit a PR and we'll consider it. Things that we'll be looking for are:
 - HTTPS enabled by default
 - good dev experience - easy to understand and work with out of the box
 - publishing newly created project works
@@ -20,6 +20,18 @@ The format of each project template in the file should follow existing pattern, 
   Short description of the template
 ```
 
-Simply copy the first item content and append it to the bottom of the file, then make necessary updates.
+Simply copy the above template to the bottom of this file, and then modify it as necessary.
 
-When you're ready to propose your changes prepared in your fork, use the following PR template when submitting a new PR. To do so, append the additional `&template=projectTemplate.md` parameter to the PR creation page link, and you'll get all the info we need to fill in for the PR.
+When you're ready to propose your changes prepared in your fork, use the `/.github/PULL_REQUEST_TEMPLATE/projectTemplate.md` PR template when submitting a new PR. To do so, append the additional `&template=projectTemplate.md` parameter to the PR creation page link, and you'll get all the info we need to fill in for the PR.
+
+## Community owned ASP.NET Core SPA project templates
+The below list represents project template packages on NuGet, which enable different scenarios for ASP.NET Core backed SPA project templates.
+
+<!--
+Please use this template for each submission
+
+```
+1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/)<br />
+  Short description of the template
+```
+-->
