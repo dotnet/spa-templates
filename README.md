@@ -25,8 +25,9 @@ Simply copy the above template to the bottom of this file, and then modify it as
 
 When you're ready to propose your changes prepared in your fork, use the `/.github/PULL_REQUEST_TEMPLATE/projectTemplate.md` PR template when submitting a new PR. To do so, append the additional `&template=projectTemplate.md` parameter to the PR creation page link, and you'll get all the info we need to fill in for the PR.
 
-## Community owned ASP.NET Core SPA project templates
-The below list represents project template packages on NuGet, which enable different scenarios for ASP.NET Core backed SPA project templates.
+## Community-owned ASP.NET Core SPA project templates
+
+This section is for community-owned project templates for using ASP.NET Core with various frontend JavaScript frameworks. To add a project template to this list just send us a PR.
 
 <!--
 Please use this template for each submission
