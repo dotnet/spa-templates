@@ -32,7 +32,6 @@ The below list represents project template packages on NuGet, which enable diffe
 Please use this template for each submission
 
 ```
-1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/)<br />
-  Short description of the template
+1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/) - Short description of the template
 ```
 -->
