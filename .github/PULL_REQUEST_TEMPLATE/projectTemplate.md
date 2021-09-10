@@ -1,8 +1,3 @@
-## Template Info
-- Name: <!-- replace this comment with the name -->
-- Link to the NuGet Package: <!-- replace this comment with the link to NuGet package-->
-- Underlying SPA framework: <!-- Examples are React, Vue, Angular, ... -->
+Please use this template for each submission
 
-## Description
-
-<!-- Tell us more about this project template -->
+1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/) - Short description of the template
