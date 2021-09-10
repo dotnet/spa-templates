@@ -1,5 +1,6 @@
-This repo is home for the Single Page Application (SPA) project templates which ship as part of ASP.NET Core and the .NET SDK.
-At the moment, those are `Angular` and `React` templates.
+# ASP.NET Core Single Page App templates
+
+This repo is home for the ASP.NET Core Single Page Application (SPA) project templates that ship as part of the .NET SDK. Currently, the .NET SDK includes template for Angular and React.
 
 Besides these two templates, we also want this repo to serve as a knowledge-base for all community-owned SPA project templates out there.
 We expect to maintain that list in the bottom of this file. If you know of any such project templates, which will meet some basic quality bar, submit a PR and we'll consider it. Things that we'll be looking for are:
