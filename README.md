@@ -1,17 +1,15 @@
 # ASP.NET Core Single Page App templates
 
-This repo is home for the ASP.NET Core Single Page Application (SPA) project templates that ship as part of the .NET SDK for Angular and React, as well as a listing of community provided templates for using ASP.NET Core with other frontend JavaScript frameworks.
+This repo is home for the ASP.NET Core Single Page App (SPA) project templates for Angular and React that ship as part of the .NET SDK, as well as a listing of community provided templates for using ASP.NET Core with other frontend JavaScript frameworks.
 
-The templates in this repo establish a pattern that can be replicated for using ASP.NET Core with other frontend JavaScript frameworks. Check out the [ASP.NET Core docs](https://aka.ms/aspnetcorespa) for details on integrating ASP.NET Core with frontend JavaScript frameworks.
+## Community templates
 
-## Community-owned ASP.NET Core SPA project templates
+This section is for community project templates for using ASP.NET Core with various frontend JavaScript frameworks. 
 
-This section is for community-owned project templates for using ASP.NET Core with various frontend JavaScript frameworks. To add a project template to this list just send us a PR.
+> See the [contributing guide](https://github.com/dotnet/spa-templates/blob/main/CONTRIBUTING.md) for details on how to add a project template to this list.
 
 <!--
-Please use this template for each submission
+Please use this template for each submission:
 
-```
-1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/) - Short description of the template
-```
+- [Template name](https://www.nuget.org/packages/**packageName**/) - ![GitHub stars](https://img.shields.io/github/stars/**org**/**repo**?style=flat-square&cacheSeconds=604800&logo=microsoft) ![last commit](https://img.shields.io/github/last-commit/**org**/**repo**?style=flat-square&cacheSeconds=86400) Short description of the template.
 -->

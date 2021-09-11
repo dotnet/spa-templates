@@ -1,3 +1,5 @@
 Please use this template for each submission
 
-1. **Template name** / [GitHub](https://github.com/**owner/repo**) /  [NuGet](https://www.nuget.org/packages/**packageName**/) - Short description of the template
+```markdown
+- [Template name](https://www.nuget.org/packages/**packageName**/) - ![GitHub stars](https://img.shields.io/github/stars/**org**/**repo**?style=flat-square&cacheSeconds=604800&logo=microsoft) ![last commit](https://img.shields.io/github/last-commit/**org**/**repo**?style=flat-square&cacheSeconds=86400) Short description of the template.
+```
