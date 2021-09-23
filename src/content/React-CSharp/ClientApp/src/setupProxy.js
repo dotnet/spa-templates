@@ -12,6 +12,7 @@ const context =  [
   "/Identity",
   "/connect",
   "/ApplyDatabaseMigrations",
+  "/_framework"
 //#endif
 ];
 
