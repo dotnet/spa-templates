@@ -1,9 +1,9 @@
 <Project>
   <PropertyGroup Label="Version settings">
-    <AspNetCoreMajorVersion>6</AspNetCoreMajorVersion>
+    <AspNetCoreMajorVersion>7</AspNetCoreMajorVersion>
     <AspNetCoreMinorVersion>0</AspNetCoreMinorVersion>
     <AspNetCoreMajorMinorVersion>$(AspNetCoreMajorVersion).$(AspNetCoreMinorVersion)</AspNetCoreMajorMinorVersion>
-    <DefaultNetCoreTargetFramework>net6.0</DefaultNetCoreTargetFramework>
+    <DefaultNetCoreTargetFramework>net7.0</DefaultNetCoreTargetFramework>
   </PropertyGroup>
   <PropertyGroup Label="Package versions">
     <!-- Packages from dotnet/arcade -->
