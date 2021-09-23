@@ -13,7 +13,7 @@ const PROXY_CONFIG = [
       "/Identity",
       "/connect",
       "/ApplyDatabaseMigrations",
-      "/_framework/aspnetcore-browser-refresh.js"
+      "/_framework"
 //#endif
    ],
     target: target,
