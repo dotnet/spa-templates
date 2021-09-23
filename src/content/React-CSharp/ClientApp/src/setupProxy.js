@@ -12,6 +12,7 @@ const context =  [
   "/Identity",
   "/connect",
   "/ApplyDatabaseMigrations",
+  "/_framework/aspnetcore-browser-refresh.js"
 //#endif
 ];
 
