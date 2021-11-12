@@ -43,7 +43,7 @@
   },
   "scripts": {
 //#if(RequiresHttps)
-"prestart": "node aspnetcore-https && node aspnetcore-react",
+    "prestart": "node aspnetcore-https && node aspnetcore-react",
 //#endif
     "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
