@@ -17,7 +17,10 @@ const PROXY_CONFIG = [
 //#endif
    ],
     target: target,
-    secure: false
+    secure: false,
+    headers: {
+      Connection: 'Keep-Alive'
+    }
   }
 ]
 

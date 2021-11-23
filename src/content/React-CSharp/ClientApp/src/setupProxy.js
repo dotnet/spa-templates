@@ -23,12 +23,15 @@ const onError = (err, req, resp, target) => {
 module.exports = function (app) {
   const appProxy = createProxyMiddleware(context, {
     target: target,
-    //by handling errors, we prevent the proxy middleware from crashing outright when
-    //the ASP NET Core webserver is unavailable, for example if it has been restarted
+    // Handle errors to prevent the proxy middleware from crashing when
+    // the ASP NET Core webserver is unavailable
     onError: onError,
-    secure: false
-    //uncomment this line if using websockets
-    //ws: true 
+    secure: false,
+    // Uncomment this line to add support for proxying websockets
+    //ws: true, 
+    headers: {
+      Connection: 'Keep-Alive'
+    }
   });
 
   app.use(appProxy);
