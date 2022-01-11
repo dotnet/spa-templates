@@ -9,7 +9,7 @@
     "start:windows": "ng serve --port 5002 --ssl --ssl-cert %APPDATA%\\ASP.NET\\https\\%npm_package_name%.pem --ssl-key %APPDATA%\\ASP.NET\\https\\%npm_package_name%.key",
     "start:default": "ng serve --port 5002 --ssl --ssl-cert $HOME/.aspnet/https/${npm_package_name}.pem --ssl-key $HOME/.aspnet/https/${npm_package_name}.key",
 //#else
-      "start": "ng serve --port 5002",
+    "start": "ng serve --port 5002",
 //#endif
     "build": "ng build",
     "build:ssr": "ng run Company.WebApplication1:server:dev",
