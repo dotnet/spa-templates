@@ -174,7 +174,7 @@ export class AuthorizeService {
         return { status: AuthenticationResultStatus.Redirect };
     }
 
-    async ensureUserManagerInitialized() {
+    async _ensureUserManagerInitialized() {
         if (this.userManager !== undefined) {
             return;
         }
@@ -198,6 +198,15 @@ export class AuthorizeService {
             this.updateState(undefined);
         });
     }
+    
+    ensureUserManagerInitialized = (() => {
+        let chain = Promise.resolve();
+        return () => {
+            const next = chain.then(this._ensureUserManagerInitialized.bind(this));
+            chain = next.catch(() => {});
+            return next;
+        }
+    })();
 
     static get instance() { return authService }
 }
