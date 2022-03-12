@@ -5,19 +5,16 @@ import { ApplicationPaths, QueryParameterNames } from './ApiAuthorizationConstan
 import authService from './AuthorizeService';
 
 export function AuthorizeRoute(props) {
-  const [ready, setReady] = useState(false);
-  const [authenticated, setAuthenticated] = useState(false);
+  const [state, setState] = useState({ready: false, authenticated: false});
 
   useEffect(() => {
     const populateAuthenticationState = async () => {
       const authenticated = await authService.isAuthenticated();
-      setReady(true);
-      setAuthenticated(authenticated);
+      setState({ready: true, authenticated: authenticated});
     };
 
     const authenticationChanged = async () => {
-      setReady(false);
-      setAuthenticated(false);
+      setState({ready: false, authenticated: false});
       await populateAuthenticationState();
     };
 
@@ -30,13 +27,13 @@ export function AuthorizeRoute(props) {
   link.href = props.path;
   const returnUrl = `${link.protocol}//${link.host}${link.pathname}${link.search}${link.hash}`;
   const redirectUrl = `${ApplicationPaths.Login}?${QueryParameterNames.ReturnUrl}=${encodeURIComponent(returnUrl)}`
-  if (!ready) {
+  if (!state.ready) {
     return <div></div>;
   } else {
     const { component: Component, ...rest } = props;
     return <Route {...rest}
                   render={(props) => {
-                    if (authenticated) {
+                    if (state.authenticated) {
                       return <Component {...props} />
                     } else {
                       return <Redirect to={redirectUrl} />
