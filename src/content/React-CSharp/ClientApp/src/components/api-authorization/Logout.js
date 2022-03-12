@@ -76,7 +76,7 @@ export function Logout(props) {
     }
 
     setIsReady(true);
-  }, [props])
+  }, [])
 
   const getReturnUrl = (state) => {
     const params = new URLSearchParams(window.location.search);
