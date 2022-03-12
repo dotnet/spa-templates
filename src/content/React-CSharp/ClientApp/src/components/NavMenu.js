@@ -10,7 +10,7 @@ import './NavMenu.css';
 export function NavMenu() {
   const [collapsed, setCollapsed] = useState(true);
 
-  const toggleNavbar = () => setCollapsed(!collapsed);
+  const toggleNavbar = () => setCollapsed(current => !current);
 
   return (
     <header>
