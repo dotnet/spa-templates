@@ -29,6 +29,21 @@
       ],
       "modifiers": [
         {
+          "condition": "(!UseProgramMain)",
+          "exclude": [
+            "Program.Main.cs"
+          ]
+        },
+        {
+          "condition": "(UseProgramMain)",
+          "exclude": [
+            "Program.cs"
+          ],
+          "rename": {
+            "Program.Main.cs": "Program.cs"
+          }
+        },
+        {
           "condition": "(!IndividualLocalAuth)",
           "exclude": [
             "Pages/Shared/_LoginPartial.cshtml",
