@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router';
-import { Layout } from './components/Layout';
-import { Home } from './components/Home';
-import { FetchData } from './components/FetchData';
-import { Counter } from './components/Counter';
+import { Route, Routes } from 'react-router-dom';
+import AppRoutes from './AppRoutes';
 ////#if (IndividualLocalAuth)
 import AuthorizeRoute from './components/api-authorization/AuthorizeRoute';
-import ApiAuthorizationRoutes from './components/api-authorization/ApiAuthorizationRoutes';
-import { ApplicationPaths } from './components/api-authorization/ApiAuthorizationConstants';
 ////#endif
-
-import './custom.css'
+import { Layout } from './components/Layout';
+import './custom.css';
 
 export default class App extends Component {
   static displayName = App.name;
 
-  render () {
+  render() {
     return (
       <Layout>
-        <Route exact path='/' component={Home} />
-        <Route path='/counter' component={Counter} />
+        <Routes>
+          {AppRoutes.map((route, index) => {
 ////#if (!IndividualLocalAuth)
-        <Route path='/fetch-data' component={FetchData} />
+            const { element, ...rest } = route;
+            return <Route key={index} {...rest} element={element} />;
+////#else
+            const { element, requireAuth, ...rest } = route;
+            return <Route key={index} {...rest} element={requireAuth ? <AuthorizeRoute {...rest} element={element} /> : element} />;
 ////#endif
-////#if (IndividualLocalAuth)
-        <AuthorizeRoute path='/fetch-data' component={FetchData} />
-        <Route path={ApplicationPaths.ApiAuthorizationPrefix} component={ApiAuthorizationRoutes} />
-////#endif
+          })}
+        </Routes>
       </Layout>
     );
   }
