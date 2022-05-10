@@ -41,6 +41,9 @@
     "nan": "^2.15.0",
     "typescript": "^4.6.3"
   },
+  "overrides": {
+    "autoprefixer": "10.4.5"
+  },
   "resolutions": {
     "css-what": "^5.0.1",
     "nth-check": "^3.0.1"
