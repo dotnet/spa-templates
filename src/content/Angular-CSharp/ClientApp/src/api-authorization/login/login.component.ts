@@ -105,7 +105,7 @@ export class LoginComponent implements OnInit {
     // a relative url or an absolute url
     if (fromQuery &&
       !(fromQuery.startsWith(`${window.location.origin}/`) ||
-        /\/[^\/].*/.test(fromQuery))) {
+        /\/[^\/]?.*/.test(fromQuery))) {
       // This is an extra check to prevent open redirects.
       throw new Error('Invalid return url. The return url needs to have the same origin as the current page.');
     }
