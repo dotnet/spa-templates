@@ -1,7 +1,7 @@
 {
   "author": "Microsoft",
-  "description": "A project template for creating an ASP.NET Core application with Angular",
-  "name": "ASP.NET Core with Angular",
+  "description": "Um modelo de projeto para a criação de um aplicativo ASP.NET Core com Angular",
+  "name": "ASP.NET Core com Angular",
   "symbols/auth/choices/None/description": "No authentication",
   "symbols/auth/choices/Individual/description": "Individual authentication",
   "symbols/auth/description": "The type of authentication to use",

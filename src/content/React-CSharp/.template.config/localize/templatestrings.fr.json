@@ -1,7 +1,7 @@
 {
   "author": "Microsoft",
-  "description": "A project template for creating an ASP.NET Core application with React.js",
-  "name": "ASP.NET Core with React.js",
+  "description": "Modèle de projet pour la création d'une application ASP.NET Core avec React.js",
+  "name": "ASP.NET Core avec React.js",
   "symbols/auth/choices/None/description": "No authentication",
   "symbols/auth/choices/Individual/description": "Individual authentication",
   "symbols/auth/description": "The type of authentication to use",
