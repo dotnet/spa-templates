@@ -1,8 +1,15 @@
 # How to contribute
 
+## Update existing templates
+
+You can submit changes for templates in this repo by submitting a pull request. If you make changes to any
+`content/*/.template.config/template.json` files, build locally and include any
+`content/*/.template.config/localize/` changes in your pull request. (Your build may update the strings in those
+files for later localization.)
+
 ## Add to the community ASP.NET Core SPA templates list
 
-You can add a project template to the community-owned ASP.NET Core SPA templates listing by submitting a pull request to update [README.md](https://github.com/dotnet/spa-templates/blob/main/README.md). 
+You can add a project template to the community-owned ASP.NET Core SPA templates listing by submitting a pull request to update [README.md](https://github.com/dotnet/spa-templates/blob/main/README.md).
 
 Please ensure your pull request adheres to the following:
 
