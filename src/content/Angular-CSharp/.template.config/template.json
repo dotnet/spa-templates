@@ -1,10 +1,12 @@
 {
+  "$schema": "http://json.schemastore.org/template",
   "author": "Microsoft",
   "classifications": [
     "Web",
     "MVC",
     "SPA"
   ],
+  "description": "A project template for creating an ASP.NET Core application with Angular",
   "groupIdentity": "Microsoft.DotNet.Web.Spa.ProjectTemplates.Angular",
   "precedence": "9000",
   "identity": "Microsoft.DotNet.Web.Spa.ProjectTemplates.Angular.CSharp.7.0",
@@ -295,6 +297,7 @@
   },
   "postActions": [
     {
+      "id": "restore",
       "condition": "(!skipRestore)",
       "description": "Restore NuGet packages required by this project.",
       "manualInstructions": [
