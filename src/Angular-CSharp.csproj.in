@@ -53,8 +53,10 @@
   <!--/+:cnd:noEmit -->
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
+    <!-- Support multi-stage Docker builds where the front-end was built in a previous stage -->
+    <SkipSpaBuild Condition="'$(DOTNET_RUNNING_IN_CONTAINER)' == 'true' And Exists('$(SpaRoot)node_modules')">True</SkipSpaBuild>
+
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <SkipSpaBuild Condition="'$(DOTNET_RUNNING_IN_CONTAINER)' == 'true'">True</SkipSpaBuild>
     <Exec WorkingDirectory="$(SpaRoot)" Command="$(SpaInstallCommand)" Condition="'$(SkipSpaBuild)' != 'True'" />
     <Exec WorkingDirectory="$(SpaRoot)" Command="$(SpaBuildCommand)" Condition="'$(SkipSpaBuild)' != 'True'" />
 
