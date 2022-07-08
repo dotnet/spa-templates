@@ -22,29 +22,32 @@ permissions:
 
 jobs:
   compare_repos:
-    # Comment out this line to test the scripts in a fork
-    if: ${{ github.repository == env.TargetRepo }}
+    # Comment out repo checks to test the scripts in a fork or change the TargetRepo value above.
     name: "Compare the shared code in the given repos; open a PR in the target if they're out of sync."
     runs-on: windows-latest
     steps:
     - name: Checkout ${{ env.SourceRepoName }}
+      if: github.repository == env.TargetRepo
       uses: actions/checkout@v3
       with:
         repository: ${{ env.SourceRepo }}
         path: ${{ env.SourceRepoName }}
         ref: main
     - name: Checkout ${{ env.TargetRepoName }}
+      if: github.repository == env.TargetRepo
       uses: actions/checkout@v3
       with:
         repository: ${{ env.TargetRepo }}
         path: ${{ env.TargetRepoName }}
         ref: main
     - name: Copy
+      if: github.repository == env.TargetRepo
       shell: cmd
       run: ${{ github.workspace }}\${{ env.TargetRepoName }}\.github\workflows\CopyToTarget.cmd
         ${{ github.workspace }}\${{ env.SourceRepoName }}\${{ env.PathToSynchronize }}
         ${{ github.workspace }}\${{ env.TargetRepoName }}\${{ env.PathToSynchronize }}
     - name: Diff
+      if: github.repository == env.TargetRepo
       shell: cmd
       working-directory: ${{ github.workspace }}\${{ env.TargetRepoName }}
       run: |
@@ -52,10 +55,12 @@ jobs:
         git status > ..\artifacts\status.txt
         git diff > ..\artifacts\diff.txt
     - uses: actions/upload-artifact@v3
+      if: github.repository == env.TargetRepo
       with:
         name: results
         path: artifacts
     - name: Check and Notify
+      if: github.repository == env.TargetRepo
       id: check
       shell: pwsh
       env:
@@ -64,7 +69,7 @@ jobs:
         $sendpr = ${{ github.workspace }}\${{ env.TargetRepoName }}\.github\workflows\ReportDiff.ps1
         echo "::set-output name=sendpr::$sendpr"
     - name: Send PR
-      if: steps.check.outputs.sendpr == 'true'
+      if: github.repository == env.TargetRepo && steps.check.outputs.sendpr == 'true'
       # https://github.com/marketplace/actions/create-pull-request
       uses: dotnet/actions-create-pull-request@v3
       with:
@@ -75,5 +80,8 @@ jobs:
         commit-message: "Sync shared code from ${{ env.SourceRepoName }}"
         labels: area-infrastructure
         path: .\${{ env.TargetRepoName }}
+        # May have problems here with a team name. team-reviewers property doesn't work due to
+        # https://github.com/peter-evans/create-pull-request/issues/155 Avoiding that for now.
+        reviewers: dougbu, wtgodbe
         title: 'Sync shared code from ${{ env.SourceRepoName }}'
         token: ${{ secrets.GITHUB_TOKEN }}
