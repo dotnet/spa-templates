@@ -9,12 +9,10 @@
     <NoDefaultLaunchSettingsFile Condition="'$(ExcludeLaunchSettings)' == 'True'">True</NoDefaultLaunchSettingsFile>
 <!--#if (!NoSpaFrontEnd) -->
     <SpaRoot>ClientApp\</SpaRoot>
-    <SpaInstallCommand>npm install</SpaInstallCommand>
-    <SpaBuildCommand>npm run build</SpaBuildCommand>
-    <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(SpaRoot)node_modules\**</DefaultItemExcludes>
     <SpaProxyServerUrl Condition="'$(RequiresHttps)' == 'True'">https://localhost:5002</SpaProxyServerUrl>
     <SpaProxyServerUrl Condition="'$(RequiresHttps)' != 'True'">http://localhost:5002</SpaProxyServerUrl>
+    <SpaProxyLaunchCommand>npm start</SpaProxyLaunchCommand>
 <!--#endif -->
     <RootNamespace Condition="'$(name)' != '$(name{-VALUE-FORMS-}safe_namespace)'">Company.WebApplication1</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -51,15 +49,14 @@
     </Exec>
     <Error Condition="'$(ErrorCode)' != '0'" Text="Node.js is required to build and run this project. To continue, please install Node.js from https://nodejs.org/, and then restart your command prompt or IDE." />
     <Message Importance="high" Text="Restoring dependencies using 'npm'. This may take several minutes..." />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="$(SpaInstallCommand)" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
   </Target>
 <!--/+:cnd:noEmit -->
 
   <Target Name="PublishRunWebpack" AfterTargets="ComputeFilesToPublish">
     <!-- As part of publishing, ensure the JS resources are freshly built in production mode -->
-    <SkipSpaBuild Condition="'$(DOTNET_RUNNING_IN_CONTAINER)' == 'true'">True</SkipSpaBuild>
-    <Exec WorkingDirectory="$(SpaRoot)" Command="$(SpaInstallCommand)" Condition="'$(SkipSpaBuild)' != 'True'" />
-    <Exec WorkingDirectory="$(SpaRoot)" Command="$(SpaBuildCommand)" Condition="'$(SkipSpaBuild)' != 'True'" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm install" />
+    <Exec WorkingDirectory="$(SpaRoot)" Command="npm run build" />
 
     <!-- Include the newly-built files in the publish output -->
     <ItemGroup>
