@@ -27,12 +27,22 @@ module.exports = function (app) {
     // the ASP NET Core webserver is unavailable
     onError: onError,
     secure: false,
-    // Uncomment this line to add support for proxying websockets
-    //ws: true, 
     headers: {
       Connection: 'Keep-Alive'
     }
   });
 
   app.use(appProxy);
+  
+  // Uncomment these lines to add support for proxying WebSockets
+  /*
+  const wsProxy = createProxyMiddleware('/ws', {
+    target: target,
+    onError: onError,
+    secure: false,
+    ws: true
+  });
+  
+  app.use(wsProxy);
+  */
 };
