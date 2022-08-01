@@ -14,3 +14,8 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.btn-primary:focus, .btn-primary:focus:not(:focus-visible) {
+  box-shadow: none;
+  outline: black auto 1px;
+}
