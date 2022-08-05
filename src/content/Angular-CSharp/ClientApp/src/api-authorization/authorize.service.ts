@@ -43,6 +43,7 @@ export class AuthorizeService {
   private popUpDisabled = true;
   private userManager?: UserManager;
   private userSubject: BehaviorSubject<IUser | null> = new BehaviorSubject<IUser | null>(null);
+  private ensureUserManagerInitializedPromise?: Promise<void>;
 
   public isAuthenticated(): Observable<boolean> {
     return this.getUser().pipe(map(u => !!u));
@@ -170,7 +171,15 @@ export class AuthorizeService {
   }
 
   private async ensureUserManagerInitialized(): Promise<void> {
-    this.userManager ??= await this.createUserManager();
+    const ensureUserManagerInitializedInternal = async (): Promise<void> => {
+      this.userManager ??= await this.createUserManager();
+    };
+
+    if(!this.ensureUserManagerInitializedPromise) {
+      this.ensureUserManagerInitializedPromise = ensureUserManagerInitializedInternal();
+    }
+
+    return this.ensureUserManagerInitializedPromise;
   }
 
   private async createUserManager(): Promise<UserManager> {
