@@ -170,10 +170,10 @@ export class AuthorizeService {
   }
 
   private async ensureUserManagerInitialized(): Promise<void> {
-    if (this.userManager !== undefined) {
-      return;
-    }
+    this.userManager ??= await this.createUserManager();
+  }
 
+  private async createUserManager(): Promise<UserManager> {
     const response = await fetch(ApplicationPaths.ApiAuthorizationClientConfigurationUrl);
     if (!response.ok) {
       throw new Error(`Could not load settings for '${ApplicationName}'`);
@@ -182,12 +182,14 @@ export class AuthorizeService {
     const settings: any = await response.json();
     settings.automaticSilentRenew = true;
     settings.includeIdTokenInSilentRenew = true;
-    this.userManager = new UserManager(settings);
+    const userManager = new UserManager(settings);
 
-    this.userManager.events.addUserSignedOut(async () => {
+    userManager.events.addUserSignedOut(async () => {
       await this.userManager!.removeUser();
       this.userSubject.next(null);
     });
+
+    return userManager;
   }
 
   private getUserFromStorage(): Observable<IUser | null> {
