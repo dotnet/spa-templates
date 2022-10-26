@@ -1,24 +1,17 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginComponent } from './login.component';
-import { ActivatedRoute, ActivatedRouteSnapshot, UrlSegment, convertToParamMap, Params, Router } from '@angular/router';
-import { of } from 'rxjs';
+import { ActivatedRoute, UrlSegment, convertToParamMap, Params, Router } from '@angular/router';
 import { LoginActions } from '../api-authorization.constants';
-import { HttpParams } from '@angular/common/http';
 import { AuthorizeService } from '../authorize.service';
 import { HomeComponent } from 'src/app/home/home.component';
-
-class RouterStub {
-  url = '';
-  navigate(commands: any[], extras?: any) {}
-}
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
   let router: Router;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     let tempParams: Params = { id: '1234' };
 
     let segment0: UrlSegment = new UrlSegment('segment0', {});
@@ -43,15 +36,17 @@ describe('LoginComponent', () => {
       }]
     }).compileComponents();
 
-    router = TestBed.get(Router);
+    router = TestBed.inject(Router);
     spyOn(router, 'navigate').and.returnValue(Promise.resolve(true));
-  }));
+  });
 
   beforeEach(() => {
-    let authService = TestBed.get(AuthorizeService);
+    let authService = TestBed.inject(AuthorizeService);
 
-    spyOn(authService, 'ensureUserManagerInitialized').and.returnValue(
-      Promise.resolve());
+    spyOn(authService as any, 'createUserManager').and.callFake(() => {
+      const userManager = jasmine.createSpyObj([]);
+      return Promise.resolve(userManager);
+    })
 
     fixture = TestBed.createComponent(LoginComponent);
     component = fixture.componentInstance;
