@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { LoginMenuComponent } from './login-menu.component';
 import { AuthorizeService } from '../authorize.service';
@@ -8,20 +8,22 @@ describe('LoginMenuComponent', () => {
   let component: LoginMenuComponent;
   let fixture: ComponentFixture<LoginMenuComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [RouterTestingModule], 
+      imports: [RouterTestingModule],
       declarations: [ LoginMenuComponent ]
     })
     .compileComponents();
-  }));
+  });
 
   beforeEach(() => {
-    let authService = TestBed.get(AuthorizeService);
+    let authService = TestBed.inject(AuthorizeService);
 
-    spyOn(authService, 'ensureUserManagerInitialized').and.returnValue(
-      Promise.resolve());
-    spyOn(authService, 'getUserFromStorage').and.returnValue(
+    spyOn(authService as any, 'createUserManager').and.callFake(() => {
+      const userManager = jasmine.createSpyObj([]);
+      return Promise.resolve(userManager);
+    });
+    spyOn(authService as any, 'getUserFromStorage').and.returnValue(
       of(null));
 
     fixture = TestBed.createComponent(LoginMenuComponent);
