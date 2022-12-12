@@ -45,7 +45,7 @@
             Condition=" '$(LocalizeTemplates)' == 'true' "
             IsImplicitlyDefined="true"
             PrivateAssets="all"
-            Version="$(MicrosoftTemplateEngineTasksVersion)" />
+            Version="$(MicrosoftTemplateEngineAuthoringTasksVersion)" />
       </ItemGroup>
     </When>
     <Otherwise>
