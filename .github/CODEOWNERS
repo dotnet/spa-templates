@@ -4,5 +4,4 @@
 *                                                                                 @dotnet/aspnet-blazor-eng
 /.github/                                                                         @dotnet/aspnet-build @dougbu @wtgodbe
 /eng/                                                                             @dotnet/aspnet-build @dougbu @wtgodbe
-/eng/common/                                                                      @dotnet-maestro-bot
-/eng/Versions.props                                                               @dotnet-maestro-bot @dotnet/aspnet-build @dougbu @wtgodbe
+/eng/Versions.props                                                               @dotnet/aspnet-build @dougbu @wtgodbe
