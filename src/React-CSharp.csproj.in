@@ -25,7 +25,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="${MicrosoftAspNetCoreIdentityUIVersion}" Condition=" '$(IndividualLocalAuth)' == 'True' " />
     <PackageReference Include="Microsoft.AspNetCore.SpaProxy" Version="${MicrosoftAspNetCoreSpaProxyVersion}">
       <!-- The SPA Proxy is only used at development time -->
-    <Publish>false</Publish>
+      <Publish>false</Publish>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="${MicrosoftEntityFrameworkCoreRelationalVersion}" Condition=" '$(IndividualLocalAuth)' == 'True' " />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="${MicrosoftEntityFrameworkCoreSqlServerVersion}" Condition=" '$(IndividualLocalAuth)' == 'True' AND '$(UseLocalDB)' == 'True'" />
