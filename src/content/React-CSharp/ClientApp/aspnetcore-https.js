@@ -23,11 +23,13 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
   spawn('dotnet', [
     'dev-certs',
     'https',
+    '--check',
     '--export-path',
     certFilePath,
     '--format',
     'Pem',
     '--no-password',
+    '--trust',
   ], { stdio: 'inherit', })
   .on('exit', (code) => process.exit(code));
 }
