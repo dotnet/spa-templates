@@ -8,12 +8,7 @@ const PROXY_CONFIG = [
     context: [
       "/weatherforecast",
 //#if (IndividualLocalAuth)
-      "/_configuration",
-      "/.well-known",
-      "/Identity",
-      "/connect",
-      "/ApplyDatabaseMigrations",
-      "/_framework"
+      "/Identity"
 //#endif
    ],
     proxyTimeout: 10000,
