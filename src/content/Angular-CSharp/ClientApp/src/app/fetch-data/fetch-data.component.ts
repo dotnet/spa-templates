@@ -1,4 +1,5 @@
 import { Component, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-fetch-data',
@@ -7,17 +8,11 @@ import { Component, Inject } from '@angular/core';
 export class FetchDataComponent {
   public forecasts: WeatherForecast[] = [];
 
-  constructor(@Inject('BASE_URL') baseUrl: string) {
-    fetch(baseUrl + 'weatherforecast').then(response => {
-////#if (IndividualLocalAuth)
-      if (response.redirected && response.url.startsWith(`${baseUrl}Identity/Account/Login`)) {
-        window.location.href = `${baseUrl}Identity/Account/Login?ReturnUrl=/fetch-data`;
-      }
-////#endif
-      return response.json();
-    }).then(result => {
-      this.forecasts = result;
-    }, error => console.error(error));
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe({
+      next: result => this.forecasts = result,
+      error: error => console.error(error)
+    });
   }
 }
 

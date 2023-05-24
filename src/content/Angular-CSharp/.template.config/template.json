@@ -50,7 +50,8 @@
           "exclude": [
             "Pages/Shared/_LoginPartial.cshtml",
             "Data/**",
-            "Models/**"
+            "Models/**",
+            "ClientApp/src/api-authorization/**"
           ]
         },
         {
