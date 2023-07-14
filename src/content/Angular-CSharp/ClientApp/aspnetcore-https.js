@@ -19,7 +19,20 @@ if (!certificateName) {
 const certFilePath = path.join(baseFolder, `${certificateName}.pem`);
 const keyFilePath = path.join(baseFolder, `${certificateName}.key`);
 
-if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
+let certFileAge = Number.MAX_SAFE_INTEGER;
+let keyFileAge = Number.MAX_SAFE_INTEGER;
+
+try {
+  certFileAge = fileAgeInHours(certFilePath);
+  keyFileAge = fileAgeInHours(keyFilePath);
+} catch {
+  // one of the files not exists
+}
+
+const  FILE_MAX_TTL = 1.0;    // hours
+
+// re-run the tool if any of the checked files not exists or created more than FILE_MAX_TTL hour(s) ago
+if (certFileAge > FILE_MAX_TTL || keyFileAge > FILE_MAX_TTL) {
   spawn('dotnet', [
     'dev-certs',
     'https',
@@ -31,3 +44,10 @@ if (!fs.existsSync(certFilePath) || !fs.existsSync(keyFilePath)) {
   ], { stdio: 'inherit', })
   .on('exit', (code) => process.exit(code));
 }
+
+// how many hours lapsed since this file was modified last time?
+function fileAgeInHours(filePath) {
+  const { mtimeMs } = fs.statSync(filePath);
+  const nowMs = (new Date()).getTime();
+  return ((nowMs - mtimeMs) / 1000) / 3600;  
+};
