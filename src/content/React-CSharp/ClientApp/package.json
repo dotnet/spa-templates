@@ -31,6 +31,7 @@
   },
   "devDependencies": {
     "ajv": "^8.12.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "cross-env": "^7.0.3",
     "eslint": "^8.39.0",
     "eslint-config-react-app": "^7.0.1",
